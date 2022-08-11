@@ -9,13 +9,21 @@
 <body>
     <h1>북마크 리스트</h1>
     <ul>
-        {{ bookmark_list }}
-        {% for i in bookmark_list %}
-            <li><a href="{{ i.id }}/">{{ i.title }}</a></li>
-        {% endfor %}
+        {% if bookmark_list %}
+            {% for i in bookmark_list %}
+                <!-- 1. href 코드 수정하기 : 여기는 디테일 페이지로 연결 -->
+                <li><a href="{% url 'bookmarks:detail' i.id %}">{{ i.title }}</a></li>
+            {% endfor %}
+        {% else %}
+        <p>북마크가 없습니다!</p>
+        {% endif %}
     </ul>
+    <!-- 2. 북마크 만들기 a태그 만들고, 연결해주기 -->
+    <a href="{% url 'bookmarks:create' %}">북마크 만들기 페이지</a>
 </body>
 </html>
+
+
 
 
 

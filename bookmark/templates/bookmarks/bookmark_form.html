@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>북마크 등록하기</h1>
-
+    {% if bookmark %}
+        <h1>북마크 수정하기_새로 만들었음</h1>
+    {% else %}
+        <h1>북마크 등록하기_새로 만들었음</h1>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
 
