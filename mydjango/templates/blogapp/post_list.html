@@ -1,24 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
-    <h1>Blog</h1>
-    {% if posts %}
-        <ul>
-            {% for i in posts %}
-                <li><a href="{% url 'blogapp:detail' i.id %}"> {{ i.title }} </a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p> 포스트가 없습니다! </p>
-    {% endif %}
 
-    
-</body>
-</html>
+
+{% extends 'base.html' %}
+
+{% block title %} 블로그 리스트{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row">
+                <div class="col-10">
+                    <h1>My Blog</h1>
+                </div>
+                <div class="col-2 text-end float-right">
+                    <a href="{% url 'blogapp:create' %}" class="btn btn-primary" >글 작성</a>
+                    {% if post_list %}
+                </div>
+            </div>
+        
+                {% for post in post_list %}
+                <div class="card" style="margin-bottom:10px; white-space: nowrap; overflow: hidden; text-overflow: clip;">
+                    <div class="card-body">
+                        <a href="{% url 'blogapp:detail' post.pk %}"><p class="card-title">{{post.title}}</p>
+                        <p class="card-subtitle mb-10 text-muted">{{post.context}}</p>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>글이 작성되지 않았습니다!!!</p>
+            {% endif %}
+        </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock%}

@@ -12,11 +12,12 @@
         <li>URL : <a href="{{ bookmark.url }}">{{ bookmark.url }}</a></li>
         <li>memo : {{ bookmark.memo }}</li>
     </ul>
-    <a href="/bookmark/update/{{ bookmark.id }}/">수정하기</a>
-    <a href="{% url 'bookmarks:update' bookmark.id %}">수정하기2</a>
-
-    <a href="/bookmark/delete/{{ bookmark.id }}/">삭제하기</a>
-    <a href="{% url 'bookmarks:delete' bookmark.id %}">삭제하기2</a>
-
+    {% comment %} {% comment %} <a href="/bookmark/update/{{ bookmark.id }}/">수정하기</a> {% endcomment %}
+    <a href="{% url 'bookmarks:update' bookmark.id %}">수정하기</a>
+    
+    
+    
+    {% comment %} <a href="/bookmark/delete/{{ bookmark.id }}/">삭제하기</a> {% endcomment %}
+    <a href="{% url 'bookmarks:delete' bookmark.id %}">삭제하기</a>
 </body>
 </html>

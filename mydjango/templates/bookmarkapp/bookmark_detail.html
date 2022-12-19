@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} 북마크 리스트 페이지 {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+    <h1>{{ bookmark.title }}</h1>
+    <ul>
+        <li>URL : <a href="{{ bookmark.url }}">{{ bookmark.url }}</a></li>
+        <li>memo : {{ bookmark.memo }}</li>
+    </ul>
+    {% comment %} {% comment %} <a href="/bookmark/update/{{ bookmark.id }}/">수정하기</a> {% endcomment %}
+    <a href="{% url 'bookmarkapp:update' bookmark.id %}">수정하기</a>
+    
+    
+    
+    {% comment %} <a href="/bookmark/delete/{{ bookmark.id }}/">삭제하기</a> {% endcomment %}
+    <a href="{% url 'bookmarkapp:delete' bookmark.id %}">삭제하기</a>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -13,18 +13,20 @@
     <form method="post">
         {% csrf_token %}
 
-        <!-- <input type="text" name="title" placeholder="북마크 제목">
+        {% comment %} <input type="text" name="title" placeholder="북마크 제목">
         <input type="text" name="url" placeholder="북마크 url">
-        <input type="text" name="memo" placeholder="북마크 메모"> -->
+        <input type="text" name="memo" placeholder="북마크 메모"> {% endcomment %}
+
         {{ form.as_p }}
+
         <input type="submit" value="북마크 등록">
     </form>
 
 
-    <form method="post">
+    {% comment %} <form method="post">
         {% csrf_token %}
         <input type="submit" value="포스트 요청 보내기">
-    </form>
+    </form> {% endcomment %}
 
 
 
